@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="App">
         {" "}
         <h1>Welcome</h1>
         <PostsList />

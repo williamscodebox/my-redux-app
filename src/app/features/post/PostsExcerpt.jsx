@@ -8,7 +8,7 @@ function PostsExcerpt({ post }) {
     <div className="postsview">
       <article className="posts">
         <h3>{post.title}</h3>
-        <p>{post.content.substring(0, 100)}</p>
+        <p>{post.body.substring(0, 100)}</p>
         <p className="test">
           <PostAuthor userId={post.userId} />
           <TimeAgo timestamp={post.date} />

@@ -28,7 +28,14 @@ function PostsList() {
     const orderedPosts = posts
       .slice()
       .sort((a, b) => b.date.localeCompare(a.date));
-    content = orderedPosts.map((post) => (
+
+    const preContent = orderedPosts.filter((val, i) => {
+      if (i !== orderedPosts.length - 1) {
+        return val.id !== orderedPosts[i + 1].id;
+      }
+      return val;
+    });
+    content = preContent.map((post) => (
       <PostsExcerpt key={post.id} post={post} />
     ));
   } else if (postStatus === "failed") {

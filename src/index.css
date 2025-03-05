@@ -35,14 +35,20 @@ h1 {
   line-height: 1.1;
 }
 
+h3 {
+  font-size: 1.2em;
+  line-height: 0.5;
+  margin-top: 25px;
+}
+
 article {
   width: 400px;
-
-  text-align: center;
+  text-align: left;
   border: 3px solid #eaeaea;
   border-radius: 8px;
   border-top: 5px solid #646cff;
   border-right: 3px solid #646cff;
+  padding-left: 20px;
   margin-bottom: 15px;
 }
 
@@ -70,6 +76,12 @@ textarea {
   font-size: 18px;
 }
 
+select {
+  margin-bottom: 1em;
+  height: 28px;
+  font-size: 18px;
+}
+
 section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -87,11 +99,21 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border: 2px solid #010101;
+  border: 1.5px solid black;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+button:disabled,
+button[disabled] {
+  background-color: #cccccc;
+  color: #666666;
+}
+button:disabled:hover,
+button[disabled]:hover {
+  border: 1px solid transparent;
 }
 
 @media (prefers-color-scheme: light) {

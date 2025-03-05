@@ -6,9 +6,7 @@ import {
   getPostsError,
   fetchPosts,
 } from "./postsSlice";
-import PostAuthor from "./PostAuthor";
-import TimeAgo from "./TimeAgo";
-import ReactionButtons from "./ReactionButtons";
+import PostsExcerpt from "./PostsExcerpt";
 
 function PostsList() {
   const dispatch = useDispatch();
@@ -23,25 +21,21 @@ function PostsList() {
     }
   }, [postStatus, dispatch]);
 
-  const orderedPosts = posts
-    .slice()
-    .sort((a, b) => b.date.localeCompare(a.date));
+  let content;
+  if (postStatus === "losding") {
+    content = <p>"Loading..."</p>;
+  } else if (postStatus === "succeeded") {
+    const orderedPosts = posts
+      .slice()
+      .sort((a, b) => b.date.localeCompare(a.date));
+    content = orderedPosts.map((post) => (
+      <PostsExcerpt key={post.id} post={post} />
+    ));
+  } else if (postStatus === "failed") {
+    content = <p>{error}</p>;
+  }
 
-  const renderedPosts = orderedPosts.map((post) => (
-    <div className="postsview" key={post.id}>
-      <article className="posts" key={post.id}>
-        <h3>{post.title}</h3>
-        <p>{post.content.substring(0, 100)}</p>
-        <p className="test">
-          <PostAuthor userId={post.userId} />
-          <TimeAgo timestamp={post.date} />
-        </p>
-        <ReactionButtons post={post} />
-      </article>
-    </div>
-  ));
-
-  return <section className="posts">{renderedPosts}</section>;
+  return <section className="posts">{content}</section>;
 }
 
 export default PostsList;

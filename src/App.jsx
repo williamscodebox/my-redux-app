@@ -17,6 +17,7 @@ function App() {
         <AddPostForm />
       </div>
       <div className="postlist">
+        <h2 className="gridtest">Create posts and enjoy the blog</h2>
         <PostsList />
       </div>
     </>

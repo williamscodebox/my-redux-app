@@ -13,7 +13,7 @@ function PostsList() {
     .sort((a, b) => b.date.localeCompare(a.date));
 
   const renderedPosts = orderedPosts.map((post) => (
-    <div key={post.id}>
+    <div className="postsview" key={post.id}>
       <article className="posts" key={post.id}>
         <h3>{post.title}</h3>
         <p>{post.content.substring(0, 100)}</p>
@@ -26,14 +26,7 @@ function PostsList() {
     </div>
   ));
 
-  return (
-    <section className="posts">
-      <div className="posts-layout">
-        <h2 className="gridtest">Create posts and enjoy the blog</h2>
-      </div>
-      {renderedPosts}
-    </section>
-  );
+  return <section className="posts">{renderedPosts}</section>;
 }
 
 export default PostsList;

@@ -15,6 +15,8 @@ function App() {
         {" "}
         <h1>Welcome</h1>
         <AddPostForm />
+      </div>
+      <div className="postlist">
         <PostsList />
       </div>
     </>

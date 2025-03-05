@@ -128,7 +128,8 @@ const postSlice = createSlice({
       })
       .addCase(addNewPost.fulfilled, (state, action) => {
         action.payload.userId = Number(action.payload.userId);
-        action.payload.data = new Date().toISOString();
+        action.payload.id = nanoid();
+        action.payload.date = new Date().toISOString();
         action.payload.reactions = {
           thumbsUp: 0,
           wow: 0,
@@ -136,7 +137,7 @@ const postSlice = createSlice({
           rocket: 0,
           coffee: 0,
         };
-        console.log(action.payload);
+        //console.log(action.payload);
         state.posts.push(action.payload);
       });
   },

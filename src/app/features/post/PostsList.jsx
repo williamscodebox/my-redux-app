@@ -21,21 +21,25 @@ function PostsList() {
     }
   }, [postStatus, dispatch]);
 
+  const uniquePosts = Array.from(new Set(posts.map((post) => post.id))).map(
+    (id) => posts.find((post) => post.id === id)
+  );
+
   let content;
   if (postStatus === "losding") {
     content = <p>"Loading..."</p>;
   } else if (postStatus === "succeeded") {
-    const orderedPosts = posts
+    const orderedPosts = uniquePosts
       .slice()
       .sort((a, b) => b.date.localeCompare(a.date));
 
-    const preContent = orderedPosts.filter((val, i) => {
+    /*const preContent = orderedPosts.filter((val, i) => {
       if (i !== orderedPosts.length - 1) {
         return val.id !== orderedPosts[i + 1].id;
       }
       return val;
-    });
-    content = preContent.map((post) => (
+    });*/
+    content = orderedPosts.map((post) => (
       <PostsExcerpt key={post.id} post={post} />
     ));
   } else if (postStatus === "failed") {

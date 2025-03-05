@@ -142,6 +142,25 @@ button:disabled:hover,
 button[disabled]:hover {
   border: 1px solid transparent;
 }
+button.reactionButton {
+  margin-right: 5px;
+  background-color: transparent;
+  border-radius: 8px;
+  border: none;
+  padding: 0.3em 0em;
+  margin-bottom: 10px;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}
+button.reactionButton:hover {
+  border: none;
+}
+button.reactionButton:focus,
+button.reactionButton:focus-visible {
+  outline: 0px auto -webkit-focus-ring-color;
+}
 
 @media (prefers-color-scheme: light) {
   :root {

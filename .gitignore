@@ -25,3 +25,7 @@ dist-ssr
 
 # git
 .git/
+# use below commands to remove from git repo
+# git rm -r --cached directory/
+# git rm -r --cached file
+
